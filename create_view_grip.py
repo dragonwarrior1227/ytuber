@@ -82,11 +82,12 @@ time.sleep(1.5)
 ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
 
 
+
 print(ele.location)
 ac = ActionChains(driver)
 ac.move_to_element_with_offset(driver.execute_script('return document.getElementsByTagName("body")[0]'), 0,0)
 driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
-ac.move_by_offset(ele.location['x']-610,ele.location['x']-220).click().perform()
+ac.move_by_offset(ele.location['x']-10,ele.location['x']-20).click().perform()
 
 
 
