@@ -91,7 +91,7 @@ ac.move_by_offset(ele.location['x']-10,ele.location['x']-20).click().perform()
 
 
 
-driver.get_screenshot_as_file(("clip.png")
+driver.get_screenshot_as_file("clip.png")
 upload_basic("clip.png")
 
 time.sleep(100)
@@ -100,7 +100,7 @@ ele=driver.execute_script("""return document.forms[0].children[8].children[2]"""
 ele.click()
 
 
-time.sleep(1000)
+time.sleep(3000)
 driver.get_screenshot_as_file(("clip2.png")
 upload_basic("clip2.png")
 
