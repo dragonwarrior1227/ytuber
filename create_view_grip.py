@@ -101,7 +101,7 @@ ele.click()
 
 
 time.sleep(3000)
-driver.get_screenshot_as_file(("clip2.png")
+driver.get_screenshot_as_file("clip2.png")
 upload_basic("clip2.png")
 
 driver.quit()
