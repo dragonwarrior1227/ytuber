@@ -93,15 +93,18 @@ driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
 ac.move_by_offset(ele.location['x']-360,ele.location['x']-240).click().perform()
 
 
+time.sleep(100)
+
 driver.get_screenshot_as_file("clip.png")
 
 
 upload_basic("clip.png")
 
-time.sleep(100)
+
 
 ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
-ele.click()
+ac.move_to_element(ele).click().perform()
+# ele.click()
 
 
 time.sleep(100)
