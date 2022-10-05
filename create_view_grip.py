@@ -27,10 +27,12 @@ path=r"chrome/chromedriver"
 # path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
 options = Options()
-# options.binary_location =binary_path
+options.binary_location =binary_path
 options.add_argument('--no-sandbox')
 options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
-options.add_argument("--start-maximized");
+options.add_argument("window-size=794,672");
+
+# options.add_argument("--start-maximized");
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--disable-gpu")
 
@@ -81,14 +83,14 @@ driver.execute_script("""return document.forms[0].children[8].children[0].queryS
 time.sleep(1.5)
 
 ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
-
+# driver.execute_script("return window.resizeTo(780, 542)")
 print(driver.execute_script("return window.innerWidth"),driver.execute_script("return window.innerHeight"))
 
 print(ele.location)
 ac = ActionChains(driver)
 ac.move_to_element_with_offset(driver.execute_script('return document.getElementsByTagName("body")[0]'), 0,0)
 driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
-ac.move_by_offset(ele.location['x']-39,ele.location['x']-110).context_click().perform()
+ac.move_by_offset(ele.location['x']-360,ele.location['x']-240).click().perform()
 
 
 driver.get_screenshot_as_file("clip.png")
@@ -102,9 +104,9 @@ ele=driver.execute_script("""return document.forms[0].children[8].children[2]"""
 ele.click()
 
 
-time.sleep(200)
+time.sleep(100)
 driver.get_screenshot_as_file("clip2.png")
 upload_basic("clip2.png")
 
 driver.quit()
-# vdisplay.stop()
+vdisplay.stop()
