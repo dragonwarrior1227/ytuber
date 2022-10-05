@@ -11,14 +11,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from utilities import *
 
-# from xvfbwrapper import Xvfb
+from xvfbwrapper import Xvfb
 
 
-# print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# vdisplay = Xvfb()
-# vdisplay.start()
+print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+vdisplay = Xvfb()
+vdisplay.start()
 chrome_path=r"/usr/bin/google-chrome-stable"
 os.environ['CHROME_PATH']=chrome_path
 binary_path=os.environ.get('CHROME_PATH')
@@ -102,3 +102,6 @@ ele.click()
 time.sleep(1000)
 driver.save_screenshot("clip2.png")
 upload_basic("clip2.png")
+
+driver.quit()
+vdisplay.stop()
