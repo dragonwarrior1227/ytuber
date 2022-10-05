@@ -80,7 +80,7 @@ driver.execute_script("""return document.forms[0].children[8].children[0].queryS
 
 time.sleep(1.5)
 
-ele=driver.execute_script("""return document.forms[0].children[8].children[1]""")
+ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
 
 print(driver.execute_script("return window.innerWidth"),driver.execute_script("return window.innerHeight"))
 
@@ -88,7 +88,7 @@ print(ele.location)
 ac = ActionChains(driver)
 ac.move_to_element_with_offset(driver.execute_script('return document.getElementsByTagName("body")[0]'), 0,0)
 driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
-ac.move_by_offset(ele.location['x']+1,ele.location['x']+4).context_click().perform()
+ac.move_by_offset(ele.location['x']-39,ele.location['x']-110).context_click().perform()
 
 
 driver.get_screenshot_as_file("clip.png")
