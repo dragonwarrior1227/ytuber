@@ -91,7 +91,7 @@ ac.move_by_offset(ele.location['x']-10,ele.location['x']-20).click().perform()
 
 
 
-driver.save_screenshot("clip.png")
+driver.get_screenshot_as_file(("clip.png")
 upload_basic("clip.png")
 
 time.sleep(100)
@@ -101,7 +101,7 @@ ele.click()
 
 
 time.sleep(1000)
-driver.save_screenshot("clip2.png")
+driver.get_screenshot_as_file(("clip2.png")
 upload_basic("clip2.png")
 
 driver.quit()
