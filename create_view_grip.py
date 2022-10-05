@@ -88,7 +88,7 @@ print(ele.location)
 ac = ActionChains(driver)
 ac.move_to_element_with_offset(driver.execute_script('return document.getElementsByTagName("body")[0]'), 0,0)
 driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
-ac.move_by_offset(ele.location['x']-550,ele.location['x']-120).context_click().perform()
+ac.move_by_offset(ele.location['x']-500,ele.location['x']-150).context_click().perform()
 
 
 driver.get_screenshot_as_file("clip.png")
