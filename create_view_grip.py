@@ -13,19 +13,19 @@ from utilities import *
 import pyautogui
 
 
-# from xvfbwrapper import Xvfb
+from xvfbwrapper import Xvfb
 
 
-# print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# vdisplay = Xvfb()
-# vdisplay.start()
+print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+vdisplay = Xvfb()
+vdisplay.start()
 chrome_path=r"/usr/bin/google-chrome-stable"
 os.environ['CHROME_PATH']=chrome_path
 binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver"
-path=r"chrome/chromedriver.exe"
+# path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
 options = Options()
 # options.binary_location =binary_path
@@ -98,15 +98,15 @@ myScreenshot.save('clip.png')
 
 upload_basic("clip.png")
 
-# time.sleep(100)
+time.sleep(100)
 
-# ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
-# ele.click()
+ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
+ele.click()
 
 
-# time.sleep(3000)
-# driver.get_screenshot_as_file("clip2.png")
-# upload_basic("clip2.png")
+time.sleep(200)
+driver.get_screenshot_as_file("clip2.png")
+upload_basic("clip2.png")
 
-# driver.quit()
-# # vdisplay.stop()
+driver.quit()
+# vdisplay.stop()
