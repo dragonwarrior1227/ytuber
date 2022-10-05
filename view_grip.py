@@ -6,9 +6,9 @@ import time
 import random 
 import os,sys, stat,json
 import subprocess
-from xvfbwrapper import Xvfb
 from utilities import *
 
+from xvfbwrapper import Xvfb
 
 
 
