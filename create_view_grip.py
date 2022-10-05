@@ -10,7 +10,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from utilities import *
-import pyautogui
 
 
 from xvfbwrapper import Xvfb
@@ -92,9 +91,8 @@ driver.execute_script("return window.scrollTo(0, document.body.scrollHeight);")
 ac.move_by_offset(ele.location['x']-550,ele.location['x']-120).context_click().perform()
 
 
+driver.get_screenshot_as_file("clip.png")
 
-myScreenshot = pyautogui.screenshot()
-myScreenshot.save('clip.png')
 
 upload_basic("clip.png")
 
