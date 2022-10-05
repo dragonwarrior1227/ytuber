@@ -23,7 +23,7 @@ chrome_path=r"/usr/bin/google-chrome-stable"
 os.environ['CHROME_PATH']=chrome_path
 binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver"
-path=r"chrome/chromedriver.exe"
+# path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
 options = Options()
 # options.binary_location =binary_path
