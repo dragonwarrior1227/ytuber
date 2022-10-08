@@ -102,6 +102,7 @@ upload_basic("clip.png")
 
 
 
+
 ele=driver.execute_script("""return document.forms[0].children[8].children[2]""")
 ac.move_to_element(ele).click().perform()
 # ele.click()

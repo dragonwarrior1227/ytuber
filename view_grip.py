@@ -117,7 +117,9 @@ except:
 time.sleep(5)
 
 primmary_window=driver.window_handles[0]
-if len(driver.window_handles)>0:
+driver.save_screenshot("viewgrip.png")
+upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
+if len(driver.window_handles)>1:
 
 	window_after = driver.window_handles[1]
 	driver.switch_to.window(window_after)
