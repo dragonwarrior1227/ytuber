@@ -9,6 +9,7 @@ import time
 import random 
 import os,sys, stat,json
 import subprocess
+from webdriver_manager.chrome import ChromeDriverManager
 from utilities import *
 import regex as re
 from xvfbwrapper import Xvfb
@@ -18,7 +19,8 @@ from xvfbwrapper import Xvfb
 
 
 
-print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE).communicate()[0])
+# print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
 chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 
 print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
@@ -49,6 +51,7 @@ try:
     driver = webdriver.Chrome(executable_path=path,chrome_options=options)
 except Exception as e:
     print(e)
+    driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
 
 # actions = ActionChains(driver) 
 # actions.send_keys(Keys.COMMAND+'t').click().perform()
