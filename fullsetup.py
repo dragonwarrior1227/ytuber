@@ -20,7 +20,7 @@ from xvfbwrapper import Xvfb
 
 
 print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE).communicate()[0])
-print(subprocess.Popen("whereis chrome",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("chrome --version",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
 chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 chrome_path=r"/opt/buildhome/.nvm/versions/node/v12.18.0/bin/chrome"
@@ -41,9 +41,9 @@ options.binary_location =binary_path
 # options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 # options.add_argument("--remote-debugging-port=8080")
-options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
+# options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
 
-options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
+# options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
 options.add_argument("--start-maximized");
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--disable-gpu")
