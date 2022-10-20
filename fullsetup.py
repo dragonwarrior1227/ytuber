@@ -43,7 +43,7 @@ options.add_argument('--no-sandbox')
 # options.add_argument("--remote-debugging-port=8080")
 # options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
 
-options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
+# options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
 options.add_argument("--start-maximized");
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--disable-gpu")
@@ -131,45 +131,47 @@ except Exception as e:
 
 
 
-
 try:
-    driver1 = webdriver.Chrome(executable_path=path,chrome_options=options)
-except Exception as e:
-    print(e)
+    try:
+        driver1 = webdriver.Chrome(executable_path=path,chrome_options=options)
+    except Exception as e:
+        print(e)
 
 
-driver1.get("https://www.youtube.com")
-time.sleep(3)
-
-
-# print(json.dumps(driver.get_cookies()))
-set_driver_cookies(driver1)
-driver1.refresh()
-
-driver1.execute_script("window.open('');")
-print(driver1.window_handles)
-driver1.switch_to.window(driver1.window_handles[0])
-time.sleep(3)
-
-driver1.get("chrome-extension://khpcbjppaikkkfnpgbbkjgnbponddmbe/popup.html")
-
-time.sleep(2)
-
-try:
-    driver1.execute_script('return document.querySelectorAll("input")[0].value="vinay2210974@gmail.com"')
-    time.sleep(1.5)
-    driver1.execute_script('return document.querySelectorAll("input")[1].value="dragonwarrior22@"')
-    time.sleep(2)
-    driver1.execute_script('return document.querySelectorAll("button#connect")[0].click()')
-
-    time.sleep(1)
-    driver1.refresh()
+    driver1.get("https://www.youtube.com")
     time.sleep(3)
 
-    WebDriverWait(driver1, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button#start'))).click()
-    # driver.execute_script('return document.querySelectorAll("button#start")[0].click()')
-except Exception as e:
-    print(e)
+
+    # print(json.dumps(driver.get_cookies()))
+    set_driver_cookies(driver1)
+    driver1.refresh()
+
+    driver1.execute_script("window.open('');")
+    print(driver1.window_handles)
+    driver1.switch_to.window(driver1.window_handles[0])
+    time.sleep(3)
+
+    driver1.get("chrome-extension://khpcbjppaikkkfnpgbbkjgnbponddmbe/popup.html")
+
+    time.sleep(2)
+
+    try:
+        driver1.execute_script('return document.querySelectorAll("input")[0].value="vinay2210974@gmail.com"')
+        time.sleep(1.5)
+        driver1.execute_script('return document.querySelectorAll("input")[1].value="dragonwarrior22@"')
+        time.sleep(2)
+        driver1.execute_script('return document.querySelectorAll("button#connect")[0].click()')
+
+        time.sleep(1)
+        driver1.refresh()
+        time.sleep(3)
+
+        WebDriverWait(driver1, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button#start'))).click()
+        # driver.execute_script('return document.querySelectorAll("button#start")[0].click()')
+    except Exception as e:
+        print(e)
+except:
+    pass
 
 
 
@@ -189,13 +191,14 @@ except Exception as e:
 
 try:
     driver3 = webdriver.Chrome(executable_path=path,chrome_options=options)
+    driver3.get("https://www.youtube.com")
+    time.sleep(3)
+
 except Exception as e:
     print(e)
 
 
 
-driver3.get("https://www.youtube.com")
-time.sleep(3)
 
 
 try:
