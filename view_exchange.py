@@ -6,7 +6,7 @@ import time
 import random 
 import os,sys, stat,json
 import subprocess
-# from xvfbwrapper import Xvfb
+from xvfbwrapper import Xvfb
 from utilities import *
 
 
@@ -14,20 +14,23 @@ from utilities import *
 
 
 
+print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
+chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 
-# print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
-# vdisplay = Xvfb()
-# vdisplay.start()
+
+print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
+
+vdisplay = Xvfb()
+vdisplay.start()
 chrome_path=r"/usr/bin/google-chrome-stable"
 os.environ['CHROME_PATH']=chrome_path
 binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver"
-path=r"chrome/chromedriver.exe"
+# path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
 options = Options()
-# options.binary_location =binary_path
+options.binary_location =binary_path
 # options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 # options.add_argument("load-extension=/chrome/viewgrip");
