@@ -6,3 +6,4 @@ google-auth-oauthlib
 xvfbwrapper
 pandas
 regex
+packaging
