@@ -24,6 +24,7 @@ print(subprocess.Popen("whereis chrome",shell=True,stdout=subprocess.PIPE).commu
 # print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
 chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 chrome_path=r"/opt/buildhome/.nvm/versions/node/v12.18.0/bin/chrome"
+
 print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 
@@ -38,7 +39,7 @@ os.chmod(path, 0o777)
 options = Options()
 options.binary_location =binary_path
 # options.add_argument('--headless')
-# options.add_argument('--no-sandbox')
+options.add_argument('--no-sandbox')
 # options.add_argument("--remote-debugging-port=8080")
 options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
 
