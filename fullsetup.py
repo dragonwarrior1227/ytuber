@@ -36,7 +36,7 @@ options = Options()
 options.binary_location =binary_path
 # options.add_argument('--headless')
 options.add_argument('--no-sandbox')
-options.add_argument("--remote-debugging-port=9222")
+options.add_argument("--remote-debugging-port=8080")
 options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
 
 options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
