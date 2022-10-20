@@ -23,7 +23,7 @@ print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE
 print(subprocess.Popen("whereis chrome",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
 chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
-
+chrome_path=r"/opt/buildhome/.nvm/versions/node/v12.18.0/bin/chrome"
 print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 
