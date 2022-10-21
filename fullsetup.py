@@ -59,22 +59,19 @@ except Exception as e:
 # actions.send_keys(Keys.COMMAND+'t').click().perform()
 # actions.key_down(Keys.COMMAND).send_keys('t').key_up(Keys.COMMAND).perform()
 # video_url,channel_url=get_random_video()
-
-try:
-    driver.get("https://www.youtube.com")
-    time.sleep(3)
+driver.get("https://www.youtube.com")
+time.sleep(3)
 
 
-    # print(json.dumps(driver.get_cookies()))
-    set_driver_cookies(driver)
-    driver.refresh()
+# print(json.dumps(driver.get_cookies()))
+set_driver_cookies(driver)
+driver.refresh()
 
-    time.sleep(3)
-    driver.get("https://www.ytmonster.net/login")
+time.sleep(3)
+driver.get("https://www.ytmonster.net/login")
 
-    time.sleep(3)
-except:
-    pass
+time.sleep(3)
+
 try:
     driver.execute_script("""return document.forms[0].children[0].querySelector("input").value='vinay2210978@gmail.com'""")
     driver.execute_script("""return document.forms[0].children[1].querySelector("input").value='Musha22@'""")
