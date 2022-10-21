@@ -58,28 +58,27 @@ try:
     driver = webdriver.Chrome(executable_path=path,chrome_options=options)
 except Exception as e:
     print(e)
-    driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
+    
 
 # actions = ActionChains(driver) 
 # actions.send_keys(Keys.COMMAND+'t').click().perform()
 # actions.key_down(Keys.COMMAND).send_keys('t').key_up(Keys.COMMAND).perform()
 # video_url,channel_url=get_random_video()
 
-try:
-    driver.get("https://www.youtube.com")
-    time.sleep(3)
+
+driver.get("https://www.youtube.com")
+time.sleep(3)
 
 
-    # print(json.dumps(driver.get_cookies()))
-    set_driver_cookies(driver)
-    driver.refresh()
+# print(json.dumps(driver.get_cookies()))
+set_driver_cookies(driver)
+driver.refresh()
 
-    time.sleep(3)
-    driver.get("https://www.ytmonster.net/login")
+time.sleep(3)
+driver.get("https://www.ytmonster.net/login")
 
-    time.sleep(3)
-except:
-    pass
+time.sleep(3)
+
 try:
     driver.execute_script("""return document.forms[0].children[0].querySelector("input").value='vinay2210978@gmail.com'""")
     driver.execute_script("""return document.forms[0].children[1].querySelector("input").value='Musha22@'""")
@@ -141,46 +140,43 @@ except Exception as e:
 
 
 try:
-    try:
-        driver1 = webdriver.Chrome(executable_path=path,chrome_options=options)
-    except Exception as e:
-        print(e)
+    driver1 = webdriver.Chrome(executable_path=path,chrome_options=options)
+except Exception as e:
+    print(e)
 
 
-    driver1.get("https://www.youtube.com")
-    time.sleep(3)
+driver1.get("https://www.youtube.com")
+time.sleep(3)
 
 
-    # print(json.dumps(driver.get_cookies()))
-    set_driver_cookies(driver1)
-    driver1.refresh()
+# print(json.dumps(driver.get_cookies()))
+set_driver_cookies(driver1)
+driver1.refresh()
 
-    driver1.execute_script("window.open('');")
-    print(driver1.window_handles)
-    driver1.switch_to.window(driver1.window_handles[0])
-    time.sleep(3)
+driver1.execute_script("window.open('');")
+print(driver1.window_handles)
+driver1.switch_to.window(driver1.window_handles[0])
+time.sleep(3)
 
-    driver1.get("chrome-extension://khpcbjppaikkkfnpgbbkjgnbponddmbe/popup.html")
+driver1.get("chrome-extension://khpcbjppaikkkfnpgbbkjgnbponddmbe/popup.html")
 
+time.sleep(2)
+
+try:
+    driver1.execute_script('return document.querySelectorAll("input")[0].value="vinay2210974@gmail.com"')
+    time.sleep(1.5)
+    driver1.execute_script('return document.querySelectorAll("input")[1].value="dragonwarrior22@"')
     time.sleep(2)
+    driver1.execute_script('return document.querySelectorAll("button#connect")[0].click()')
 
-    try:
-        driver1.execute_script('return document.querySelectorAll("input")[0].value="vinay2210974@gmail.com"')
-        time.sleep(1.5)
-        driver1.execute_script('return document.querySelectorAll("input")[1].value="dragonwarrior22@"')
-        time.sleep(2)
-        driver1.execute_script('return document.querySelectorAll("button#connect")[0].click()')
+    time.sleep(1)
+    driver1.refresh()
+    time.sleep(3)
 
-        time.sleep(1)
-        driver1.refresh()
-        time.sleep(3)
-
-        WebDriverWait(driver1, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button#start'))).click()
-        # driver.execute_script('return document.querySelectorAll("button#start")[0].click()')
-    except Exception as e:
-        print(e)
-except:
-    pass
+    WebDriverWait(driver1, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button#start'))).click()
+    # driver.execute_script('return document.querySelectorAll("button#start")[0].click()')
+except Exception as e:
+    print(e)
 
 
 
@@ -229,96 +225,93 @@ except Exception as e:
     pass
 
 
-try:
-    # video_url,channel_url=get_random_video()
 
-    driver3.get("https://www.youtube.com")
-    time.sleep(3)
+# video_url,channel_url=get_random_video()
 
-
-    # print(json.dumps(driver.get_cookies()))
-    set_driver_cookies(driver3)
-    driver3.refresh()
+driver3.get("https://www.youtube.com")
+time.sleep(3)
 
 
-    driver3.get("https://www.viewgrip.net/")
-    time.sleep(5)
+# print(json.dumps(driver.get_cookies()))
+set_driver_cookies(driver3)
+driver3.refresh()
 
-    print(json.dumps(driver.get_cookies()))
 
-    set_view_grip_cookies(driver3)
-    # driver.refresh()
-    time.sleep(2)
+driver3.get("https://www.viewgrip.net/")
+time.sleep(5)
 
-    driver3.get("https://www.viewgrip.net/worker_session.php")
-    time.sleep(2)
+print(json.dumps(driver.get_cookies()))
 
-    # set_view_bot_cookies(driver)
-    # driver.refresh()
-    # time.sleep(2)
+set_view_grip_cookies(driver3)
+# driver.refresh()
+time.sleep(2)
 
-    print("loading")
-    try:    
-        btns=driver3.execute_script("return document.querySelectorAll('a[onclick]')")
-        
-        if len(btns)>0:
-            for i in range(0,len(btns)):
-                if 'RUN' in driver3.execute_script("return document.querySelectorAll('a[onclick]')["+str(i)+"].textContent"):
-                    driver3.execute_script("return document.querySelectorAll('a[onclick]')["+str(i)+"].click()")
-                    print("clicked run")
-        else:
-            print('no buttons')
-    except:
-        print("run button error")
+driver3.get("https://www.viewgrip.net/worker_session.php")
+time.sleep(2)
 
-    time.sleep(5)
+# set_view_bot_cookies(driver)
+# driver.refresh()
+# time.sleep(2)
 
-    primmary_window=driver3.window_handles[0]
-    driver.save_screenshot("viewgrip.png")
-    upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
-    if len(driver3.window_handles)>1:
+print("loading")
+try:    
+    btns=driver3.execute_script("return document.querySelectorAll('a[onclick]')")
+    
+    if len(btns)>0:
+        for i in range(0,len(btns)):
+            if 'RUN' in driver3.execute_script("return document.querySelectorAll('a[onclick]')["+str(i)+"].textContent"):
+                driver3.execute_script("return document.querySelectorAll('a[onclick]')["+str(i)+"].click()")
+                print("clicked run")
+    else:
+        print('no buttons')
+except:
+    print("run button error")
 
-        window_after = driver3.window_handles[1]
-        driver3.switch_to.window(window_after)
+time.sleep(5)
+
+primmary_window=driver3.window_handles[0]
+driver.save_screenshot("viewgrip.png")
+upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
+if len(driver3.window_handles)>1:
+    window_after = driver3.window_handles[1]
+    driver3.switch_to.window(window_after)
+    try:
         try:
-            try:
-                document.querySelector("input[name='delete']").click()
-            except:
-                pass
-            try:
-                print("before1")
-                time.sleep(5)
-                driver3.execute_script("""return document.querySelectorAll("button[type='submit']")[0].click()""")
-                time.sleep(5)
-            except:
-                print("no need to activate worker")
-                pass
-            print("before2")
+            document.querySelector("input[name='delete']").click()
+        except:
+            pass
+        try:
+            print("before1")
+            time.sleep(5)
+            driver3.execute_script("""return document.querySelectorAll("button[type='submit']")[0].click()""")
+            time.sleep(5)
+        except:
+            print("no need to activate worker")
+            pass
+        print("before2")
 
+        driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
+        time.sleep(18)
+        driver3.switch_to.window(window_after)
+        driver3.save_screenshot("viewgrip.png")
+        upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
+        if len(driver3.window_handles)>2:
+            time.sleep(13)
+        else:
+            driver3.switch_to.window(window_after)
             driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
             time.sleep(18)
-            driver3.switch_to.window(window_after)
-            driver3.save_screenshot("viewgrip.png")
-            upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
             if len(driver3.window_handles)>2:
                 time.sleep(13)
-            else:
-                driver3.switch_to.window(window_after)
-                driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
-                time.sleep(18)
-                if len(driver3.window_handles)>2:
-                    time.sleep(13)
 
 
-            driver3.switch_to.window(window_after)
-            driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
-            time.sleep(5)
-            driver3.execute_script("""return document.querySelectorAll("a[onclick='clear_session();']")[0].click()""")
-        except Exception as e:
-            print(e)
-            pass
-except:
-    pass
+        driver3.switch_to.window(window_after)
+        driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
+        time.sleep(5)
+        driver3.execute_script("""return document.querySelectorAll("a[onclick='clear_session();']")[0].click()""")
+    except Exception as e:
+        print(e)
+        pass
 
 
 
