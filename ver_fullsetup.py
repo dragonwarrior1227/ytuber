@@ -12,6 +12,7 @@ import subprocess
 from webdriver_manager.chrome import ChromeDriverManager
 from utilities import *
 import regex as re
+import sys,traceback
 from xvfbwrapper import Xvfb
 
 
@@ -43,13 +44,13 @@ path=r"chrome/chromedriver"
 os.chmod(path, 0o777)
 options = Options()
 options.binary_location =binary_path
-# options.add_argument('--headless')
+
 options.add_argument('--no-sandbox')
 # options.add_argument("--remote-debugging-port=8080")
 options.add_extension(os.getcwd()+"/chrome/utubehits.crx")
 
 options.add_argument("load-extension="+os.getcwd()+"/chrome/viewgrip");
-options.add_argument("--start-maximized");
+options.add_argument("--window-size=300,500")
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--disable-gpu")
 
@@ -60,17 +61,13 @@ except Exception as e:
     print(e)
     
 
-# actions = ActionChains(driver) 
-# actions.send_keys(Keys.COMMAND+'t').click().perform()
-# actions.key_down(Keys.COMMAND).send_keys('t').key_up(Keys.COMMAND).perform()
-# video_url,channel_url=get_random_video()
 
 
 driver.get("https://www.youtube.com")
 time.sleep(3)
 
 
-# print(json.dumps(driver.get_cookies()))
+
 set_driver_cookies(driver)
 driver.refresh()
 
@@ -80,8 +77,8 @@ driver.get("https://www.ytmonster.net/login")
 time.sleep(3)
 
 try:
-    driver.execute_script("""return document.forms[0].children[0].querySelector("input").value='vinay2210978@gmail.com'""")
-    driver.execute_script("""return document.forms[0].children[1].querySelector("input").value='Musha22@'""")
+    driver.execute_script("""return document.forms[0].children[0].querySelector("input").value='theetabeeta22@gmail.com'""")
+    driver.execute_script("""return document.forms[0].children[1].querySelector("input").value='beeta22theeta@'""")
     driver.execute_script("return document.forms[0].children[2].click()")
 except Exception as e:
     print(e)
@@ -154,6 +151,7 @@ set_driver_cookies(driver1)
 driver1.refresh()
 
 driver1.execute_script("window.open('');")
+driver1.execute_script("window.open('');")
 print(driver1.window_handles)
 driver1.switch_to.window(driver1.window_handles[0])
 time.sleep(3)
@@ -172,11 +170,19 @@ try:
     time.sleep(1)
     driver1.refresh()
     time.sleep(3)
+    driver1.save_screenshot("vinay2210974_main.png")
+    upload_basic("vinay2210974_main.png",'16R8tV95HZpZiUWdMmWUAvU2lJOHAvUSa')
 
     WebDriverWait(driver1, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'button#start'))).click()
     # driver.execute_script('return document.querySelectorAll("button#start")[0].click()')
+    driver1.switch_to.window(driver1.window_handles[-1])
+    time.sleep(10)
+    
+    driver1.save_screenshot("vinay2210974.png")
+    upload_basic("vinay2210974.png",'1Wzb7JJCCk8FeqC4WfTwZg2uz42Rihcbi')
 except Exception as e:
-    print(e)
+    exc_type, exc_value, exc_traceback = sys.exc_info()
+    print("utubehits error line ",exc_traceback.tb_lineno, ":  ",e)
 
 
 
@@ -240,7 +246,6 @@ driver3.refresh()
 driver3.get("https://www.viewgrip.net/")
 time.sleep(5)
 
-print(json.dumps(driver.get_cookies()))
 
 set_view_grip_cookies(driver3)
 # driver.refresh()
@@ -248,7 +253,7 @@ time.sleep(2)
 
 driver3.get("https://www.viewgrip.net/worker_session.php")
 time.sleep(2)
-
+driver3.set_window_size(300, 350)
 # set_view_bot_cookies(driver)
 # driver.refresh()
 # time.sleep(2)
@@ -270,14 +275,16 @@ except:
 time.sleep(5)
 
 primmary_window=driver3.window_handles[0]
-driver.save_screenshot("viewgrip.png")
-upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
+driver3.save_screenshot("viewgrip.png")
+driver3.set_window_size(300, 350)
+# upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
 if len(driver3.window_handles)>1:
     window_after = driver3.window_handles[1]
     driver3.switch_to.window(window_after)
+    driver3.set_window_size(300, 350)
     try:
         try:
-            document.querySelector("input[name='delete']").click()
+            driver3.execute_script("""return document.querySelectorAll("a[onclick='clear_session();']")[0].click()""")
         except:
             pass
         try:
@@ -292,23 +299,32 @@ if len(driver3.window_handles)>1:
 
         driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
         time.sleep(18)
+        driver3.switch_to.window(driver3.window_handles[-1])
+        driver3.set_window_size(300, 350)
         driver3.switch_to.window(window_after)
+        
+        
         driver3.save_screenshot("viewgrip.png")
         upload_basic("viewgrip.png",'13ALQG3rJgrQXZxivxKZ_xXED-nInKsnM')
         if len(driver3.window_handles)>2:
             time.sleep(13)
         else:
+            driver3.switch_to.window(driver3.window_handles[-1])
+            driver3.set_window_size(300, 350)
             driver3.switch_to.window(window_after)
+            
+
             driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
             time.sleep(18)
             if len(driver3.window_handles)>2:
                 time.sleep(13)
 
 
-        driver3.switch_to.window(window_after)
-        driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
-        time.sleep(5)
-        driver3.execute_script("""return document.querySelectorAll("a[onclick='clear_session();']")[0].click()""")
+        # driver3.switch_to.window(window_after)
+        # driver3.set_window_size(500, 400)
+        # driver3.execute_script("""return document.querySelectorAll("span[onclick='javascript:startSurf();ScrolTop();']")[0].click()""")
+        # time.sleep(5)
+        # driver3.execute_script("""return document.querySelectorAll("a[onclick='clear_session();']")[0].click()""")
     except Exception as e:
         print(e)
         pass
@@ -317,19 +333,7 @@ if len(driver3.window_handles)>1:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 time.sleep(60*30)
 
-driver.quit()
+driver3.quit()
 vdisplay.stop()
