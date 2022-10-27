@@ -13,6 +13,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from utilities import *
 import regex as re
 import sys,traceback
+import socket
 from xvfbwrapper import Xvfb
 
 
@@ -62,7 +63,7 @@ except Exception as e:
     print(e)
     
 
-
+print(socket.gethostname(),socket.gethostbyname(hostname))    
 
 driver.get("https://www.youtube.com")
 time.sleep(3)
