@@ -30,6 +30,7 @@ print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communi
 
 
 
+
 # print(subprocess.Popen("yum localinstall google-chrome-stable.rpm",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("yum -y install xorg-x11-server-Xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
