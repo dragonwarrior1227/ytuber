@@ -7,3 +7,4 @@ xvfbwrapper
 pandas
 regex
 packaging
+undetected-chromedriver
