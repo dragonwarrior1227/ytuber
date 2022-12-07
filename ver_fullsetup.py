@@ -15,7 +15,7 @@ import regex as re
 import sys,traceback
 import socket
 from xvfbwrapper import Xvfb
-
+import undetected_chromedriver as uc
 
 
 
@@ -44,7 +44,7 @@ binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver77"
 # path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
-options = Options()
+options = uc.ChromeOptions()
 options.binary_location =binary_path
 
 options.add_argument('--no-sandbox')
@@ -58,7 +58,7 @@ options.add_argument("--disable-gpu")
 
 
 try:
-    driver1 = webdriver.Chrome(executable_path=path,chrome_options=options)
+    driver1 = uc.Chrome(options=options,version_main=77)
 except Exception as e:
     print(e)
     
@@ -152,7 +152,7 @@ except Exception as e:
 
 
 try:
-    driver = webdriver.Chrome(executable_path=path,chrome_options=options)
+    driver = uc.Chrome(options=options,version_main=77)
 except Exception as e:
     print(e)
 
