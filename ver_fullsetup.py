@@ -24,7 +24,8 @@ import undetected_chromedriver as uc
 # print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("chrome --version",shell=True,stdout=subprocess.PIPE).communicate()[0])
 print(subprocess.Popen("npm install chromium",shell=True,stdout=subprocess.PIPE).communicate()[0])
-chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
+print(os.listdir(os.getcwd()+"/node_modules"))
+chrome_path=r"{}/node_modules/chromium/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 
 print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
 print(subprocess.Popen("whereis xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
