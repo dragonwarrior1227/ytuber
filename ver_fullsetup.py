@@ -17,8 +17,8 @@ import socket
 from xvfbwrapper import Xvfb
 import undetected_chromedriver as uc
 
-os.environ['NODE_CHROMIUM_REVISION']='1080322'
-
+os.environ['NODE_CHROMIUM_REVISION']='1060249'
+os.environ['NODE_CHROMIUM_DOWNLOAD_HOST']="https://npm.taobao.org/mirrors/chromium-browser-snapshots/"
 
 # print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("chrome --version",shell=True,stdout=subprocess.PIPE).communicate()[0])
