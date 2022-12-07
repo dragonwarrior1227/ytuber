@@ -44,6 +44,9 @@ binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver77"
 # path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
+uc.TARGET_VERSION = 77
+uc.install(executable_path=os.getcwd()+"/"+path,)
+
 options = uc.ChromeOptions()
 options.binary_location =binary_path
 
@@ -58,7 +61,7 @@ options.add_argument("--disable-gpu")
 
 
 try:
-    driver1 = uc.Chrome(options=options,version_main=77)
+    driver1 = uc.Chrome(options=options)
 except Exception as e:
     print(e)
     
@@ -152,7 +155,7 @@ except Exception as e:
 
 
 try:
-    driver = uc.Chrome(options=options,version_main=77)
+    driver = uc.Chrome(options=options)
 except Exception as e:
     print(e)
 
