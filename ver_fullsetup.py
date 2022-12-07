@@ -78,8 +78,8 @@ driver1.get("https://www.ytmonster.net/login")
 time.sleep(3)
 
 try:
-    driver1.execute_script("""return document.forms[0].children[0].querySelector("input").value='theetabeeta22@gmail.com'""")
-    driver1.execute_script("""return document.forms[0].children[1].querySelector("input").value='beeta22theeta@'""")
+    driver1.execute_script("""return document.forms[0].children[0].querySelector("input").value='vinay2210978@gmail.com'""")
+    driver1.execute_script("""return document.forms[0].children[1].querySelector("input").value='Musha22@'""")
     driver1.execute_script("return document.forms[0].children[2].click()")
 except Exception as e:
     print(e)
