@@ -45,7 +45,7 @@ path=r"chrome/chromedriver77"
 # path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
 uc.TARGET_VERSION = 77
-uc.install(executable_path=os.getcwd()+"/"+path,)
+# uc.install(executable_path=os.getcwd()+"/"+path,)
 
 options = uc.ChromeOptions()
 options.binary_location =binary_path
