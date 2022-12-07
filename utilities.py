@@ -59,7 +59,7 @@ def set_driver_cookies(driver,vpn_id=2):
 	try:	
 		df= read_sheet(sheet_name="Sheet3")
 		# cookies=df[df['vpn_id']==vpn_id].sample(n=1).to_dict(orient='records')[0]['cookies']
-		cookies=json.loads(df.sample(n=1).to_dict(orient='records')[0]['cookies'])	
+		cookies=json.loads(df.sample(n=1).to_dict(orient='records')[0]['youtube_cookies'])	
 	except Exception as e:
 		print("cookie error:",e)
 		cookies=[{'domain': '.youtube.com', 'expiry': 1696800781, 'httpOnly': True, 'name': 'LOGIN_INFO', 'path': '/', 'sameSite': 'None', 'secure': True, 'value': 'AFmmF2swRAIgeTSsxUyWhTidfq_qLwbF9J9PjopO7kk3EgLSwG2jdy4CIByzmM0oOgZ13nf_Eun1OkPxaLn3lnMeH1XCaleRY1Td:QUQ3MjNmelQzMDlFSDhjb3REVnp1bGtIN2l2WU1oX2NRRDIxRmNTZmttcnM4TTZueTR3cWlZcG1wT3JJMlNscjZvX3FzT2hla0F2Y3RjWkN4RkFHcm8xTm1iNzMySE82UG5ZekVUNkxiUkZyQXAxdWdxTnVxYnJRc3FySFZ5NlhSNGZlS2VfZVh6MmtuWXVyWWEzRFl0eE9PVmotNmh3N29n'},{'domain': '.youtube.com', 'expiry': 1696800780, 'httpOnly': False, 'name': 'SID', 'path': '/', 'secure': False, 'value': 'OAjcTQfQ3DWWajAPttwUu1MOMR7-HNujx33PIBs9iZ9qdOftXUuYBT0cDAAOqzLBXpEa5A.'}, {'domain': '.youtube.com', 'expiry': 1696800756, 'httpOnly': False, 'name': 'CONSENT', 'path': '/', 'secure': True, 'value': 'PENDING+759'}, {'domain': '.youtube.com', 'expiry': 1696800780, 'httpOnly': True, 'name': 'HSID', 'path': '/', 'secure': False, 'value': 'ALKicwGR6CrqSgocV'},{'domain': '.youtube.com', 'expiry': 1696800780, 'httpOnly': True, 'name': 'SSID', 'path': '/', 'secure': True, 'value': 'A9IY-7Y2ccQWGbw_W'},{'domain': '.youtube.com', 'expiry': 1696800780, 'httpOnly': True, 'name': 'SOCS', 'path': '/', 'secure': True, 'value': 'CAISEwgDEgk0NzEzNjQ0MzgaAmVuIAEaBgiAm9qYBg'}]
@@ -91,7 +91,7 @@ def set_view_grip_cookies(driver,vpn_id=2):
 		cookies=json.loads(df.sample(n=1).to_dict(orient='records')[0]['view_grip'])	
 	except Exception as e:
 		print("cookie error:",e)
-		cookies=[{"domain": ".viewgrip.net", "expiry": 1698746726, "httpOnly": False, "name": "_ga", "path": "/", "secure": False, "value": "GA1.1.202413009.1664186701"}, {"domain": ".viewgrip.net", "expiry": 1698746726, "httpOnly": False, "name": "_ga_767XEYY4K8", "path": "/", "secure": False, "value": "GS1.1.1664186700.1.1.1664186726.0.0.0"}, {"domain": ".viewgrip.net", "expiry": 1664273122, "httpOnly": False, "name": "_gid", "path": "/", "secure": False, "value": "GA1.2.1017869442.1664186703"}, {"domain": ".viewgrip.net", "expiry": 1664188500, "httpOnly": True, "name": "__cf_bm", "path": "/", "sameSite": "None", "secure": True, "value": ".h1T6niEQPR3emyzymU3tIS00cq8S38PfpvrgsW9Qis-1664186700-0-ATGYzIh5Osf/uke6bYAvc7Yc2mKt55Y0W51V4wK2o4kV1rsm0iYricnTulD1Mgy+rnkMCxNMThQdTGGaZXHvNFNjybTcsk9i9kKsJuAspew3xoCcaQzN1cjSIFhqySEEI0hNaCI0g/rcui8fsI8XeaEU76n0rvrrlp3ysYMphHdg"}, {"domain": ".viewgrip.net", "expiry": 1664186762, "httpOnly": False, "name": "_gat_gtag_UA_97989219_1", "path": "/", "secure": False, "value": "1"}, {"domain": ".viewgrip.net", "expiry": 1671962700, "httpOnly": False, "name": "_gcl_au", "path": "/", "secure": False, "value": "1.1.2091363554.1664186701"}, {"domain": "www.viewgrip.net", "expiry": 1666865100, "httpOnly": False, "name": "PHPSESSID", "path": "/", "secure": False, "value": "ur5q2hcmu3hph27l52ebigio7a"}]
+		cookies=[{"name":"_gcl_au","value":"1.1.1790076673.1664776273","domain":".viewgrip.net","path":"/","expires":1672552272,"httpOnly":False,"secure":False},{"name":"cookieconsent_status","value":"dismiss","domain":"www.viewgrip.net","path":"/","expires":1696495725,"httpOnly":False,"secure":False},{"name":"PHPSESSID","value":"a7jnekcn1g4kqfo34vm43dno4b","domain":"www.viewgrip.net","path":"/","expires":1669201526.546017,"httpOnly":True,"secure":True},{"name":"_gcl_au","value":"1.1.1790076673.1664776273","domain":"www.viewgrip.net","path":"/","expires":1670097457,"httpOnly":False,"secure":False},{"name":"AutoKey","value":"0","domain":"www.viewgrip.net","path":"/","expires":1701857315.986672,"httpOnly":False,"secure":False},{"name":"WORKER_SESSID","value":"57291d714797ce8fa3b10732c530270b32d2a702b7e7e86e82","domain":"www.viewgrip.net","path":"/","expires":1671182606.842069,"httpOnly":False,"secure":False},{"name":"_gid","value":"GA1.2.1503869350.1668590608","domain":".viewgrip.net","path":"/","expires":1668683271,"httpOnly":False,"secure":False},{"name":"PESAutoLogin","value":"ses_user%3Dbetagamma2064%26ses_hash%3D","domain":"www.viewgrip.net","path":"/","expires":1669195521.887295,"httpOnly":False,"secure":False},{"name":"_gat_gtag_UA_97989219_1","value":"1","domain":".viewgrip.net","path":"/","expires":1668596902,"httpOnly":False,"secure":False},{"name":"_ga","value":"GA1.1.2124322795.1664776273","domain":".viewgrip.net","path":"/","expires":1703156874.580937,"httpOnly":False,"secure":False},{"name":"_ga_767XEYY4K8","value":"GS1.1.1668596841.49.1.1668596874.0.0.0","domain":".viewgrip.net","path":"/","expires":1703156874.580441,"httpOnly":False,"secure":False}]
 	driver.delete_all_cookies()
 	for cookie in cookies:
 		# print(cookie)
@@ -225,7 +225,7 @@ def turn_on_vpn(driver):
 		time.sleep(1)
 		btn=driver.execute_script("return document.getElementsByClassName('select_location__button-box')[0].children[1].click()")
 		vpn_count=driver.execute_script("return document.getElementsByClassName('locations')[0].childElementCount")
-		random_vpn=random.randint(1,vpn_count)
+		random_vpn=50
 		print(vpn_count,random_vpn)
 		driver.execute_script("return document.getElementsByClassName('locations')[0].children[{}].click()".format(random_vpn))
 		time.sleep(2)
@@ -243,7 +243,6 @@ def get_user_agent():
 	except:
 			user_agent=None
 	return user_agent
-
 
 
 

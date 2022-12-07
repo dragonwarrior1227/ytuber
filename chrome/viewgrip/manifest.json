@@ -3,7 +3,7 @@
 
   "name": "ViewGrip Extension",
   "author": "ViewGrip",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "manifest_version": 3,
   "description": "Chrome Extension for ViewGrip",
   "homepage_url": "https://www.viewgrip.net",
@@ -15,8 +15,7 @@
   },
   "permissions": [
 		"history",
-		"https://www.viewgrip.net/",
-		"https://www.youtube.com/"
+		"storage"
   ],
   "host_permissions": [
   "*://*/*"
