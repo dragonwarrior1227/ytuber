@@ -23,7 +23,7 @@ import undetected_chromedriver as uc
 
 # print(subprocess.Popen("npm install chrome -g",shell=True,stdout=subprocess.PIPE).communicate()[0])
 # print(subprocess.Popen("chrome --version",shell=True,stdout=subprocess.PIPE).communicate()[0])
-print(subprocess.Popen("npm install chromium-version@77",shell=True,stdout=subprocess.PIPE).communicate()[0])
+print(subprocess.Popen("npm install chromium",shell=True,stdout=subprocess.PIPE).communicate()[0])
 chrome_path=r"{}/node_modules/chromium-version/lib/chromium/chrome-linux/chrome".format(os.getcwd())
 
 print(subprocess.Popen("npm install xvfb",shell=True,stdout=subprocess.PIPE).communicate()[0])
@@ -44,7 +44,7 @@ binary_path=os.environ.get('CHROME_PATH')
 path=r"chrome/chromedriver77"
 # path=r"chrome/chromedriver.exe"
 os.chmod(path, 0o777)
-uc.TARGET_VERSION = 77
+# uc.TARGET_VERSION = 77
 # uc.install(executable_path=os.getcwd()+"/"+path,)
 
 options = uc.ChromeOptions()
