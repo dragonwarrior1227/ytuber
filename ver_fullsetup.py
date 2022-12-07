@@ -63,7 +63,6 @@ except Exception as e:
     print(e)
     
 
-print(socket.gethostname(),socket.gethostbyname(hostname))    
 
 driver1.get("https://www.youtube.com")
 time.sleep(3)
